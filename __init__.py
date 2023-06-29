@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: Copyright © 2023 Nedko Arnaudov
 # SPDX-FileCopyrightText: Copyright © 2016-2017 Karl Linden
-# SPDX-License-Identifier: BSD-3-Clause
+# SPDX-License-Identifier: BSD-2-Clause
 
 class WafToolchainFlags:
     """
