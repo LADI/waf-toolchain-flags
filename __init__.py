@@ -1,4 +1,5 @@
 # SPDX-FileCopyrightText: Copyright © 2023 Nedko Arnaudov
+# SPDX-FileCopyrightText: Copyright © 2016-2017 Karl Linden
 # SPDX-License-Identifier: BSD-3-Clause
 
 class WafToolchainFlags:
@@ -80,3 +81,19 @@ class WafToolchainFlags:
         :param value: string or list of strings
         """
         self.add('LINKFLAGS', value)
+
+    def print(self):
+        """
+        Print via conf.msg all non-empty flags
+        """
+        tool_flags = [
+            ('C compiler flags',      ['CFLAGS', 'CPPFLAGS']),
+            ('C++ compiler flags',    ['CXXFLAGS', 'CPPFLAGS']),
+            ('Linker flags',          ['LINKFLAGS', 'LDFLAGS'])
+        ]
+        for name, vars in tool_flags:
+            flags = []
+            for var in vars:
+                flags += self.conf.all_envs[''][var]
+            if flags:
+                self.conf.msg(name, repr(flags), color='NORMAL')
