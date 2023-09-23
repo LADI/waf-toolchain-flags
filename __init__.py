@@ -1,3 +1,4 @@
+# encoding: utf-8
 # SPDX-FileCopyrightText: Copyright © 2023 Nedko Arnaudov
 # SPDX-FileCopyrightText: Copyright © 2016-2017 Karl Linden
 # SPDX-License-Identifier: BSD-2-Clause
@@ -82,7 +83,7 @@ class WafToolchainFlags:
         """
         self.add('LINKFLAGS', value)
 
-    def print(self):
+    def display(self):
         """
         Print via conf.msg all non-empty flags
         """
